@@ -1,14 +1,14 @@
-package com.codepath.apps.bzfire.models;
+package com.codepath.apps.bzfire;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.codepath.apps.bzfire.ContractorArrayAdapter;
-import com.codepath.apps.bzfire.R;
+import com.codepath.apps.bzfire.models.Contractor;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -33,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+//        getSupportActionBar().setLogo(R.drawable.logo);
+//        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         contractorSearch();
 
         flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
@@ -83,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
                 makeToast(MainActivity.this, "Clicked!");
+                //show detail page
             }
         });
 

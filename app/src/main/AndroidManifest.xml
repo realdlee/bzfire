@@ -35,7 +35,7 @@
                     android:scheme="oauth"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.codepath.apps.bzfire.models.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
