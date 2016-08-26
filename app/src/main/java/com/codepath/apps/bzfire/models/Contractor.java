@@ -1,5 +1,7 @@
 package com.codepath.apps.bzfire.models;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

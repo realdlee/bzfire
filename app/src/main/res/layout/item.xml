@@ -30,7 +30,6 @@
         android:layout_centerHorizontal="true"
         android:minHeight="200dp"
         android:minWidth="200dp"
-        android:src="@drawable/ic_launcher"
         tools:src="@drawable/ic_launcher"/>
 
     <RelativeLayout
