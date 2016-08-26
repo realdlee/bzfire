@@ -12,6 +12,22 @@ import java.util.ArrayList;
  */
 @Parcel
 public class Contractor {
+    public String getBusinessName() {
+        return businessName;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
     Integer id;
     String thumbnailUrl;
     String businessName;
@@ -34,6 +50,7 @@ public class Contractor {
             JSONObject thumbnail = (JSONObject) jsonObject.getJSONArray("thumbnails").get(0);
             this.thumbnailUrl = thumbnail.getString("url");
             this.businessName = jsonObject.getString("business_name");
+            this.score = jsonObject.getInt("score");
         } catch (JSONException e) {
             e.printStackTrace();
         }

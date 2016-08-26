@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.codepath.apps.bzfire.ContractorArrayAdapter;
 import com.codepath.apps.bzfire.R;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -25,9 +25,8 @@ import cz.msebera.android.httpclient.Header;
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
     SwipeFlingAdapterView flingContainer;
-    private ArrayList<String> al = new ArrayList<>();
-    ;
-    private ArrayAdapter<String> arrayAdapter;
+    private ArrayList<Contractor> contractors;
+    private ContractorArrayAdapter contractorArrayAdapter;
     private int i;
 
     @Override
@@ -36,32 +35,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         contractorSearch();
 
-        //add the view via xml or programmatically
         flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
+        contractors = new ArrayList<>();
+        contractorArrayAdapter = new ContractorArrayAdapter(this, contractors);
 
-        al.add("php");
-        al.add("c");
-        al.add("python");
-        al.add("java");
+        flingContainer.setAdapter(contractorArrayAdapter);
 
-        //choose your favorite adapter
-        arrayAdapter = new ArrayAdapter<String>(this, R.layout.item, R.id.helloText, al);
-
-        //set the listener and the adapter
-        flingContainer.setAdapter(arrayAdapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
             public void removeFirstObjectInAdapter() {
                 // this is the simplest way to delete an object from the Adapter (/AdapterView)
                 Log.d("LIST", "removed object!");
-                al.remove(0);
-                arrayAdapter.notifyDataSetChanged();
+                contractors.remove(0);
+                contractorArrayAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onLeftCardExit(Object dataObject) {
-                //Do something on the left!
-                //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
                 Toast.makeText(MainActivity.this, "Left!", Toast.LENGTH_SHORT).show();
             }
@@ -74,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
                 // Ask for more data here
-                al.add("XML ".concat(String.valueOf(i)));
-                arrayAdapter.notifyDataSetChanged();
+//                .add("XML ".concat(String.valueOf(i)));
+                contractorArrayAdapter.notifyDataSetChanged();
                 Log.d("LIST", "notified");
                 i++;
             }
@@ -109,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         String url = "https://www.buildzoom.com/api/v1/search_contractors/san-diego-ca/general-contractors";
         RequestParams params = new RequestParams();
 
-        params.put("page_size", 1);
+        params.put("page_size", 3);
         params.put("mile_radius", 60);
         params.put("keywords", "general contractors");
         params.put("location_id", 16261);
@@ -122,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     JSONArray results = response.getJSONObject("results").getJSONArray("contractors");
                     Log.e(TAG, results.toString());
-                    Contractor.fromJSONArray(results);
+                    contractorArrayAdapter.addAll(Contractor.fromJSONArray(results));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

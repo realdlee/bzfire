@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="250dp"
-             android:layout_height="170dp"
-             android:layout_gravity="center">
-
-    <TextView
-        android:id="@+id/helloText"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#E339"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        android:textSize="40sp"
-        tools:text="hello_world"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="250dp"
+                android:layout_height="270dp"
+                android:layout_gravity="center"
+                android:background="@drawable/border">
 
     <View
         android:id="@+id/item_swipe_left_indicator"
@@ -32,4 +23,38 @@
         android:alpha="0"
         android:background="#5AF"/>
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:minHeight="200dp"
+        android:minWidth="200dp"
+        android:src="@drawable/ic_launcher"
+        tools:src="@drawable/ic_launcher"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:layout_below="@id/ivProfile"
+        android:foregroundGravity="bottom">
+
+        <TextView
+            android:id="@+id/tvBusinessName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            tools:text="ABC Contracting"/>
+        <TextView
+            android:id="@+id/tvScore"
+            android:layout_alignParentRight="true"
+            android:gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"/>
+
+    </RelativeLayout>
+</RelativeLayout>
