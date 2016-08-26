@@ -45,15 +45,35 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
+            android:textSize="16sp"
             tools:text="ABC Contracting"/>
         <TextView
             android:id="@+id/tvScore"
+            android:layout_below="@id/tvBusinessName"
             android:layout_alignParentRight="true"
             android:gravity="end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="100"/>
-
+        <TextView
+            android:id="@+id/tvLocation"
+            android:layout_below="@id/tvBusinessName"
+            android:layout_alignParentLeft="true"
+            android:gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="San Francisco, CA"/>
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="121dp"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="199dp"/>
 </RelativeLayout>

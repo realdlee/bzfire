@@ -35,6 +35,8 @@ public class ContractorArrayAdapter extends ArrayAdapter<Contractor> {
         TextView tvScore = (TextView) convertView.findViewById(R.id.tvScore);
         tvScore.setText(Integer.toString(contractor.getScore()));
 
+        TextView tvLocation = (TextView) convertView.findViewById(R.id.tvLocation);
+        tvLocation.setText(contractor.getLocation());
         ImageView ivProfile = (ImageView) convertView.findViewById(R.id.ivProfile);
         ivProfile.setImageResource(0);
         Glide.with(getContext()).load("http:" + contractor.getThumbnailUrl()).into(ivProfile);

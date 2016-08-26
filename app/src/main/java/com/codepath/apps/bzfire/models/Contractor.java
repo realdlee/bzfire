@@ -33,17 +33,23 @@ public class Contractor {
     Integer id;
     String thumbnailUrl;
     String businessName;
+
+    public String getLocation() {
+        return location;
+    }
+
+    String location;
     Integer score;
 
     public Contractor() {
-
     }
 
-    public Contractor(Integer id, String thumbnailUrl, String businessName, Integer score) {
+    public Contractor(Integer id, String thumbnailUrl, String businessName, Integer score, String location) {
         this.id = id;
         this.thumbnailUrl = thumbnailUrl;
         this.businessName = businessName;
         this.score = score;
+        this.location = location;
     }
 
     public Contractor(JSONObject jsonObject) {
@@ -53,6 +59,7 @@ public class Contractor {
             this.thumbnailUrl = thumbnail.getString("url");
             this.businessName = jsonObject.getString("business_name");
             this.score = jsonObject.getInt("score");
+            this.location = jsonObject.getString("display_location");
         } catch (JSONException e) {
             e.printStackTrace();
         }

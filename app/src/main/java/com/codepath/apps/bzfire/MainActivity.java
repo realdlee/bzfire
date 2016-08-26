@@ -1,6 +1,7 @@
 package com.codepath.apps.bzfire;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,10 +14,13 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+import com.parse.Parse;
+import com.parse.interceptors.ParseLogInterceptor;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -36,8 +40,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-//        getSupportActionBar().setLogo(R.drawable.logo);
-//        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Parse.initialize(new Parse.Configuration.Builder(this)
+                .applicationId("darse")
+                .clientKey(null)
+                .addNetworkInterceptor(new ParseLogInterceptor())
+                .server("https://darse.herokuapp.com/parse/").build());
 
         contractorSearch();
 
@@ -89,7 +98,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
                 makeToast(MainActivity.this, "Clicked!");
-                //show detail page
+                Intent i= new Intent(MainActivity.this, DetailActivity.class);
+                Contractor contractor = contractors.get(itemPosition);
+                i.putExtra("contractor", Parcels.wrap(contractor));
+                startActivity(i);
             }
         });
 
