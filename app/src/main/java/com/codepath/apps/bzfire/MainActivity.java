@@ -37,10 +37,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setupToolbar();
 
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("darse")
@@ -98,13 +95,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
                 makeToast(MainActivity.this, "Clicked!");
-                Intent i= new Intent(MainActivity.this, DetailActivity.class);
+                Intent i = new Intent(MainActivity.this, DetailActivity.class);
                 Contractor contractor = contractors.get(itemPosition);
                 i.putExtra("contractor", Parcels.wrap(contractor));
                 startActivity(i);
             }
         });
 
+    }
+
+    public void setupToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     static void makeToast(Context ctx, String s) {

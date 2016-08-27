@@ -8,4 +8,25 @@
 
     <include
         layout="@layout/toolbar"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:minHeight="200dp"
+        android:minWidth="200dp"
+        tools:src="@drawable/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/tvBusinessName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_below="@id/imageView"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
+        tools:text="ABC Contracting"/>
 </RelativeLayout>
