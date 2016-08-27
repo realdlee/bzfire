@@ -1,43 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    android:layout_height="match_parent">
 
-    <include
-        layout="@layout/toolbar"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".DetailActivity">
 
-    <ImageView
-        android:id="@+id/ivProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
-        android:layout_centerHorizontal="true"
-        android:minHeight="200dp"
-        android:minWidth="200dp"
-        tools:src="@drawable/ic_launcher"/>
+        <include
+            layout="@layout/toolbar"/>
 
-    <TextView
-        android:id="@+id/tvBusinessName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/ivProfile"
-        android:layout_alignStart="@+id/ivProfile"
-        android:layout_below="@id/ivProfile"
-        android:gravity="center_horizontal"
-        android:textSize="20sp"
-        tools:text="ABC Contracting"/>
+        <ImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:layout_centerHorizontal="true"
+            android:minHeight="300dp"
+            android:minWidth="200dp"
+            android:adjustViewBounds="true"
+            tools:src="@drawable/ic_launcher"/>
 
-    <TextView
-        android:id="@+id/tvAbout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvBusinessName"
-        android:padding="10dp"
-        tools:text="Pacific Building Group understands that a construction project is a team effort! We are proud of the projects that we have completed together with some of San Diego's best designers and architects, tenants, and leading owners and developers!"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        />
+        <TextView
+            android:id="@+id/tvBusinessName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivProfile"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:textSize="20sp"
+            tools:text="ABC Contracting"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tvAbout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvBusinessName"
+            android:padding="10dp"
+            android:textSize="13sp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:text="Pacific Building Group understands that a construction project is a team effort! We are proud of the projects that we have completed together with some of San Diego's best designers and architects, tenants, and leading owners and developers!"
+            />
+
+    </RelativeLayout>
+</ScrollView>
