@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="250dp"
-                android:layout_height="270dp"
+                android:layout_width="240dp"
+                android:layout_height="340dp"
                 android:layout_gravity="center"
                 android:background="@drawable/border">
 
-    <View
-        android:id="@+id/item_swipe_left_indicator"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_margin="10dp"
-        android:alpha="0"
-        android:background="#A5F"/>
+    <!--<ImageView-->
+        <!--android:id="@+id/item_swipe_left_indicator"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_gravity="start"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:tint="@android:color/holo_green_light"-->
+        <!--android:alpha="1"-->
+        <!--android:src="@drawable/yes"-->
+        <!--/>-->
 
-    <View
-        android:id="@+id/item_swipe_right_indicator"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_gravity="right"
-        android:layout_margin="10dp"
-        android:alpha="0"
-        android:background="#5AF"/>
+    <!--<ImageView-->
+        <!--android:id="@+id/item_swipe_right_indicator"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_gravity="right"-->
+        <!--android:tint="@android:color/holo_red_light"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:alpha="1"-->
+        <!--android:src="@drawable/no"-->
+        <!--/>-->
 
     <ImageView
         android:id="@+id/ivProfile"
