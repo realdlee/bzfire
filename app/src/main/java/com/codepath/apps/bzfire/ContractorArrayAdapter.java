@@ -39,7 +39,7 @@ public class ContractorArrayAdapter extends ArrayAdapter<Contractor> {
         tvLocation.setText(contractor.getLocation());
         ImageView ivProfile = (ImageView) convertView.findViewById(R.id.ivProfile);
         ivProfile.setImageResource(0);
-        Glide.with(getContext()).load("http:" + contractor.getThumbnailUrl()).into(ivProfile);
+        Glide.with(getContext()).load(contractor.getThumbnailUrl()).into(ivProfile);
 
         return convertView;
     }
